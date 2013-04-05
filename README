@@ -1,0 +1,68 @@
+===============================================================================
+Hangman using RMI
+
+This is a simple command-line Hangman game using RMI. The Hangman remote object
+contains the phrases that the Hangman client will use.
+===============================================================================
+
+===========================
+NAME: Rubiales, Christian C
+Course: IS 238
+Assignment #: 3 and 4
+Date: Oct 1, 2005
+===========================
+
+=====
+FILES
+=====
+
+Hangman.java
+	- Hangman interface that declares methods used by a Hangman client.
+
+HangmanImpl.java
+	- Implements the Hangman remote interface to provide a Hangman remote 
+	object.
+
+HangmanClient.java
+	- This class uses the Hangman remote object to be able to play.
+	
+	
+	
+=======================
+BUILDING THE JAVA FILES
+=======================
+Assuming that that the JDK is properly set up already,
+
+1. Build the HangmanImpl using rmic
+% rmic -v1.2 HangmanImpl
+
+This results in the following files:
+- Hangman.class
+- HangmanImpl.class
+- HangmanImpl_Stub.class
+
+
+2. Build the Hangman client
+% javac HangmanClient.java
+
+Which produces HangmanClient.class
+
+
+===============
+RUNNING HANGMAN
+===============
+1. Run the RMI registry
+% rmiregistry
+
+2. Run the HangmanImpl (defaults to localhost if server is not supplied)
+% java HangmanImpl
+
+or 
+
+% java HangmanImpl <server>
+
+3. Run the Client
+% java HangmanClient
+
+
+
